@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "iam:CreatePolicyVersion",
+                "iam:DeletePolicy",
+                "iam:AttachUserPolicy",
+                "iam:DetachUserPolicy",
+                "iam:AttachGroupPolicy",
+                "iam:DetachGroupPolicy",
+                "iam:AttachRolePolicy",
+                "iam:DetachRolePolicy",
+                "iam:ListPolicies"
+            ],
+            "Resource": [
+                "arn:aws:iam::<AccountNumber>:policy/<PolicyName>"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:username": "<UserName>"
+                }
+            }
+        }
+    ]
+}
